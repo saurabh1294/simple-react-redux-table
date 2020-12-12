@@ -51,7 +51,9 @@ export default function tableReducer(state = initialState, action: any) {
       );
       return {
         ...state,
-        ...action.payload
+        // set the below value in state json array key via redux-persist
+        key: state.tableData[action.rowNum][`col${action.colNum+1}`],
+        value: action.payload
       };
 
     case GET_TABLE_DATA:

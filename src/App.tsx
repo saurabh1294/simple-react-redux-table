@@ -15,7 +15,8 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    updateTableCell : (data: string) => dispatch(updateTableCell(data))
+    updateTableCell : (data: string, row: Number, col: Number) => 
+    dispatch(updateTableCell(data, row, col))
   }
 }
 
@@ -28,11 +29,18 @@ class App extends React.Component <any, any> {
     console.log('this is the props', props);
   }
 
-  updateValue(event: any, row: Number, col: Number) {
+  updateValue(event: any, row: any, col: any) {
     console.log(event?.target?.firstChild?.data, event, 'here updated value');
     const { updateTableCell } = this.props;
-    alert(JSON.stringify(updateTableCell(event?.target?.firstChild?.data)));
-    // TODO fire an action from here with data event?.target?.firstChild?.data to update and get the persistent state 
+    /*if (event?.target?.firstChild?.data !== this.props.tableData[row][`col${col+1}`]) {
+      updateTableCell(event?.target?.firstChild?.data, row, col);
+      alert();
+    }
+    console.log(this.props.tableData, this.state.tableData);*/
+    updateTableCell(event?.target?.firstChild?.data, row, col);
+   
+    // alert(JSON.stringify(updateTableCell(event?.target?.firstChild?.data, row, col)));
+    // updateTableCell(event?.target?.firstChild?.data, row, col);
   }
 
   render() {
