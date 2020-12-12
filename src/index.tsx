@@ -32,9 +32,9 @@ const storeObj = Store() as any;
 ReactDOM.render(
   <Provider store={storeObj.store}>
     <React.StrictMode>
-      <PersistGate loading={null} persistor={storeObj.persistor as any}>
+      {/* <PersistGate loading={null} persistor={storeObj.persistor as any}> */}
         <App />
-      </PersistGate>
+      {/* </PersistGate> */}
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

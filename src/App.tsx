@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { updateTableCell } from "./actions/actions";
 
 import "./styles.css";
 import './App.css';
@@ -14,7 +15,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-
+    updateTableCell : (data: string) => dispatch(updateTableCell(data))
   }
 }
 
@@ -33,6 +34,8 @@ class App extends React.Component <any, any> {
 
   updateValue(event: any) {
     console.log(event?.target?.firstChild?.data, event, 'here updated value');
+    const { updateTableCell } = this.props;
+    alert(JSON.stringify(updateTableCell(event?.target?.firstChild?.data)));
     // TODO fire an action from here with data event?.target?.firstChild?.data to update and get the persistent state 
   }
 
@@ -56,54 +59,54 @@ class App extends React.Component <any, any> {
             </thead>
             <tbody>
               <tr>
-                <td className="pt-3-half" contentEditable="true" onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
                 onKeyDown={this.handleChange.bind(this)}>
                   {this.props?.tableData[0].col1}
                 </td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>30</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Deepends</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Spain</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Madrid</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[0].col2}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[0].col3}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[0].col4}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[0].col5}</td>
               </tr>
               <tr>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Guerra Cortez</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>45</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Insectus</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>USA</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>San Francisco</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[1].col1}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[1].col2}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[1].col3}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[1].col4}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[1].col5}</td>
               </tr>
               <tr>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Guadalupe House</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>26</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Isotronic</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Germany</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Frankfurt am Main</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[2].col1}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[2].col2}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[2].col3}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[2].col4}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[2].col5}</td>
               </tr>
               <tr className="hide">
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Elisa Gallagher</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>31</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>Portica</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>United Kingdom</td>
-                <td className="pt-3-half" contentEditable="true"  onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
-                onKeyDown={this.handleChange.bind(this)}>London</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[3].col1}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[3].col2}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[3].col3}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[3].col4}</td>
+                <td className="pt-3-half" contentEditable="true" suppressContentEditableWarning={true} onBlur={this.updateValue.bind(this)} onMouseUp={this.handleChange.bind(this)} 
+                onKeyDown={this.handleChange.bind(this)}>{this.props?.tableData[3].col5}</td>
               </tr>
             </tbody>
           </table>

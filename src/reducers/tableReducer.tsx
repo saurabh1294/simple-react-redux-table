@@ -47,9 +47,8 @@ export default function tableReducer(state = initialState, action: any) {
       console.log(
         state,
         "update table cell",
-        action.payload
+        action
       );
-
       return {
         ...state,
         ...action.payload
